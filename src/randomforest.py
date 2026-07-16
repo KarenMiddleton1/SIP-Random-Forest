@@ -28,10 +28,10 @@ def extract_data():
         day_sin: Day of the year with sine transformation.
         day_cos: Day of the year with cosine transformation.
     """
-    with open("../data/formatted_data1.json") as d1:        # Opens the formated JSON file without radiation components
+    with open("../data/data1.json") as d1:        # Opens the formated JSON file without radiation components
         data1 = json.load(d1)       # Stores data in data1 variable
 
-    with open("../data/formatted_data2.json") as d2:        # Opens the formated JSON file with radiation components
+    with open("../data/data2.json") as d2:        # Opens the formated JSON file with radiation components
         data2 = json.load(d2)       # Stores data in data2 variable
 
     Gi = []     # Global irradiance on the inclined plane
@@ -97,7 +97,7 @@ def prepare_data(Gi, Gbi, Gdi, Gri, H_sun, T2m, WS10m, hour_sin, hour_cos, day_s
 
     radiation_components = "Y"      # Set to "Y" to include radiation components in the model, "N" to exclude them
     meteorological_variables = "Y"      # Set to "Y" to include meteorological variables in the model, "N" to exclude them
-    prev_hour = 48      # Number of previous hours to include in the model, includes current hour
+    prev_hour = 6      # Number of previous hours to include in the model, includes current hour
     future_hour = 48     # Number of hours ahead to predict
     
     if radiation_components == "N" and meteorological_variables == "N":     # Does not include radiation components or meteorological variables in the feature matrix
